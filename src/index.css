@@ -1,0 +1,12 @@
+/* --- TAILWIND BASE --- */
+@import "tailwindcss";
+@plugin "@midudev/tailwind-animations";
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+/* Watermark  */
+.fp-watermark {
+  display: none !important;
+}
