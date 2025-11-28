@@ -1,5 +1,5 @@
 /** @type {import('tailwindcss').Config} */
-// tailwind.config.mjs (for Tailwind CSS 3.*)
+// tailwind.config.mjs
 
 import animations from '@midudev/tailwind-animations'
 
@@ -20,28 +20,32 @@ module.exports = {
           "0%": { opacity: 0, transform: "translateY(-4px)" },
           "100%": { opacity: 1, transform: "translateY(0)" },
         },
-
-        // ⭐ NUEVA animación pro para el Pop-up
         popupFade: {
           "0%": { opacity: 0, transform: "translateY(20px) scale(0.95)" },
           "100%": { opacity: 1, transform: "translateY(0) scale(1)" },
+        },
+
+        // ⭐ Float suave infinito
+        floatSoft: {
+          "0%, 100%": { transform: "translateY(0px)" },
+          "50%": { transform: "translateY(-4px)" },
         },
       },
 
       animation: {
         fadeInImage: "fadeInImage 0.5s ease-out forwards",
         fadeIn: "fadeIn 0.25s ease-in-out",
-
-        // ⭐ Animación del pop-up
         popupFade: "popupFade 0.4s ease-out",
+
+        // ⭐ Float suave (este faltaba)
+        floatSoft: "floatSoft 3s ease-in-out infinite",
       },
     },
   },
 
   darkMode: "class",
 
-  // Plugins
   plugins: [
-    animations
+    animations,
   ],
 };

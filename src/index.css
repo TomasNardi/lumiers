@@ -5,8 +5,27 @@
 @tailwind components;
 @tailwind utilities;
 
-
 /* Watermark  */
 .fp-watermark {
   display: none !important;
+}
+
+/* Más espacio entre los puntos */
+#fp-nav ul li {
+  margin: 16px 0 !important;
+}
+
+/* Color y tamaño puntitos normales */
+#fp-nav ul li a span {
+  background: rgba(148, 148, 146, 0.329) !important;
+  width: 15px !important;
+  height: 15px !important;
+  margin: -10px 0 0 -20px !important;
+  border-radius: 50% !important;
+}
+
+/* Color y efecto del puntito activo */
+#fp-nav ul li a.active span {
+  background: rgb(255, 94, 0) !important;
+  transform: scale(1.25);
 }
