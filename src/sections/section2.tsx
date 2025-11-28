@@ -33,23 +33,25 @@ const Section2 = () => {
                             label: "Vela Nectarine"
                         }
                     ].map((item, i) => (
-                        <div key={i} className="col-span-1 relative group">
-                            <img
-                                src={item.img}
-                                alt=""
-                                className="w-full h-full object-cover cursor-pointer"
-                            />
+                       <div key={i} className="col-span-1 relative group aspect-square ">
+                    <img
+                        src={item.img}
+                        alt=""
+                        className="w-full h-full object-cover cursor-pointer rounded-xl"
+                    />
 
-                            <div className="
-                                absolute bottom-0 left-0 w-full h-[20%]
-                                bg-neutral-800/70 flex items-center justify-center
-                                opacity-0 translate-y-5
-                                group-hover:opacity-100 group-hover:translate-y-0
-                                transition-all duration-300 ease-out
-                            ">
-                                <p className="text-white text-sm">{item.label}</p>
-                            </div>
-                        </div>
+                    <div className="
+                        absolute bottom-0 left-0 w-full h-[20%]
+                        bg-neutral-800/70 flex items-center justify-center
+                        opacity-0 translate-y-5
+                        group-hover:opacity-100 group-hover:translate-y-0
+                        transition-all duration-300 ease-out
+                        rounded-b-xl
+                    ">
+                        <p className="text-white text-sm">{item.label}</p>
+                    </div>
+                </div>
+
                     ))}
 
                 </div>

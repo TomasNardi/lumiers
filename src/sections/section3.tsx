@@ -52,7 +52,7 @@ const Section3: React.FC<SectionProps> = ({ fullpageApi }) => {
     className="
         absolute bottom-10 right-10
         px-4 py-2 
-        bg-white text-black font-bold rounded
+        bg-white text-black font-bold rounded-full
         hover:bg-grey-200 
         transition cursor-pointer
 
