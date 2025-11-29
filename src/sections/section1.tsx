@@ -5,6 +5,30 @@ const Section1 = (): JSX.Element => {
     return (
         <div className="section h-screen text-white relative overflow-hidden">
 
+            
+        {/* MARQUEE SUPERIOR */}
+{/* MARQUEE SUPERIOR */}
+<div className="absolute top-0 left-0 w-full z-50 bg-white text-black py-1 overflow-hidden">
+    <div className="marquee-wrapper">
+        <div className="marquee-content">
+            💥 BLACK FRIDAY • 20 % OFF 💥
+        </div>
+        <div className="marquee-content">
+            💥 BLACK FRIDAY • 20 % OFF 💥
+        </div>
+          <div className="marquee-content">
+            💥 BLACK FRIDAY • 20 % OFF 💥
+        </div>
+          <div className="marquee-content">
+            💥 BLACK FRIDAY • 20 % OFF 💥
+        </div>
+    </div>
+</div>
+
+
+
+
+
             {/* BG GALAXY */}
             <div className="absolute inset-0 z-0 pointer-events-none">
                 <Galaxy

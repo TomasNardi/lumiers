@@ -29,3 +29,31 @@
   background: rgb(255, 94, 0) !important;
   transform: scale(1.25);
 }
+@keyframes marqueeScroll {
+  0% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+/* Contenedor grande que se mueve */
+.marquee-wrapper {
+  display: flex;
+  width: 200%;             /* 🔥 2 tracks enteros */
+  animation: marqueeScroll 12s linear infinite;
+}
+
+/* Cada track */
+.marquee-content {
+  width: 50%;               /* 🔥 Cada uno ocupa la mitad */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 3rem;                /* separación linda */
+  white-space: nowrap;
+  font-weight: 600;
+  padding: 0.3rem 0;
+  font-size: 0.9rem;
+}
