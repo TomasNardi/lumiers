@@ -88,7 +88,7 @@ const Section1 = (): JSX.Element => {
                         LUMIER AROMAS
                     </h1>
                     
-                    <p className="mb-5 text-lg md:text-base animate-fade-in-up">Store Online de Velas y fragancias.</p>
+                    <p className="mb-5 text-lg md:text-base animate-fade-in-up">Lumier Store Online - Velas y fragancias.</p>
 
                     <div className="hidden md:block h-0.5 w-20 md:w-30 bg-gradient-to-r from-gray-50/60 via-gray-200/40 to-gray-400/20 mb-6 rounded-full mx-auto md:mx-0"></div>
 
@@ -104,28 +104,43 @@ const Section1 = (): JSX.Element => {
                     {/* <-- CAMBIO: w-full en mobile, centran el contenido; md:w-auto y md:justify-start para desktop --> */}
                     <div className="flex w-full md:w-auto flex-col md:flex-row items-center justify-center md:justify-start gap-5 md:gap-6 mt-4 relative z-30 animate-fade-in-left">
 
-                        <button className="
-                            z-30 flex items-center gap-2
-                            px-6 py-2 md:px-6 md:py-2
-                            rounded-full text-white font-medium
-                            text-sm md:text-xl
-                            bg-gradient-to-r from-lime-700 via-lime-600 to-lime-500
-                            transition-all duration-300 ease-in-out
-                            hover:-translate-y-1 hover:opacity-85 cursor-pointer
-                            shadow-md active:scale-95
-                        ">
-                            Ir a la Tienda <FcPaid className="text-lg md:text-xl " />
-                        </button>
+                    <button
+                    className="
+                        z-30 flex items-center gap-2
+                        px-6 py-2 md:px-6 md:py-2
+                        rounded-full text-white font-medium
+                        text-sm md:text-xl
+                        bg-gradient-to-r from-lime-700 via-lime-600 to-lime-500
+                        transition-all duration-300 ease-in-out
+                        hover:-translate-y-1 hover:opacity-85 cursor-pointer
+                        shadow-md active:scale-95
 
-                        <button className="
-                            z-30 px-6 py-2 rounded-full text-white font-medium
-                            text-sm md:text-xl
-                            bg-gradient-to-r from-neutral-700 via-neutral-600 to-neutral-500
-                            transition-all duration-300 ease-in-out
-                            hover:-translate-y-1 hover:opacity-85 cursor-pointer
-                        ">
-                            Contactar
-                        </button>
+                        /* ⭐ Glow constante suave */
+                        shadow-[0_0_8px_rgba(132,204,22,0.45)]
+
+                        /* ⭐ Glow fuerte en hover */
+                        hover:shadow-[0_0_22px_rgba(163,230,53,1)]
+                    "
+                    >
+                    Ir a la Tienda <FcPaid className="text-lg md:text-xl" />
+                    </button>
+
+                    <button
+                    className="
+                        z-30 px-6 py-2 rounded-full text-white font-medium
+                        text-sm md:text-xl
+                        bg-gradient-to-r from-neutral-700 via-neutral-600 to-neutral-500
+                        transition-all duration-300 ease-in-out
+                        hover:-translate-y-1 hover:opacity-85 cursor-pointer
+
+                        shadow-[0_0_8px_rgba(255,255,255,0.25)]
+                        hover:shadow-[0_0_22px_rgba(255,255,255,0.55)]
+                    "
+                    >
+                    Contactar
+                    </button>
+
+
 
                     </div>
 
