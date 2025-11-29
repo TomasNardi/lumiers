@@ -99,10 +99,18 @@ const Section1 = (): JSX.Element => {
                     <p className="text-xs md:text-base font-extralight tracking-wide text-white/70 mb-4">
                         Creá momentos. Encendé sensaciones.
                     </p>
+                                        {/* QR ARRIBA DE LOS BOTONES */}
+                    <img
+                    src="https://www.whatnot.com/cdn/assets/1dbee64c086e3bd0/_next/static/media/qrcodeBlack.ceb3dd60.png"
+                    alt="QR"
+                    className="hidden md:block w-32 md:w-40 mb-4 animate-fade-in-up select-none bg-fuchsia-50  rounded-xl md:rounded-2xl"
+                    />
+
 
                     {/* BOTONES */}
                     {/* <-- CAMBIO: w-full en mobile, centran el contenido; md:w-auto y md:justify-start para desktop --> */}
                     <div className="flex w-full md:w-auto flex-col md:flex-row items-center justify-center md:justify-start gap-5 md:gap-6 mt-4 relative z-30 animate-fade-in-left">
+
 
                     <button
                     className="
@@ -116,7 +124,7 @@ const Section1 = (): JSX.Element => {
                         shadow-md active:scale-95
 
                         /* ⭐ Glow constante suave */
-                        shadow-[0_0_8px_rgba(132,204,22,0.45)]
+                        shadow-[0_0_8px_rgba(132,204,22,a0.45)]
 
                         /* ⭐ Glow fuerte en hover */
                         hover:shadow-[0_0_22px_rgba(163,230,53,1)]
