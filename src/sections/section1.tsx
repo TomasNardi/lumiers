@@ -43,7 +43,7 @@ const Section1 = (): JSX.Element => {
             </div>
 
             {/* CONTENIDO PRINCIPAL */}
-            <div className="relative z-10 grid grid-cols-1 md:grid-cols-2 gap-5 md:gap-20 h-full p-3 md:p-12">
+            <div className="relative z-10 grid grid-cols-1 md:grid-cols-2 md:gap-20 h-full p-2 md:p-12">
 
                 {/* COLUMNA 1 */}
                 <div className="relative col-span-1 flex items-center justify-center">
@@ -76,7 +76,7 @@ const Section1 = (): JSX.Element => {
                     <img
                         src="https://i.ibb.co/cc05jmn9/pngwing-com.png"
                         alt=""
-                        className="relative z-10 w-[70%] md:w-[80%] max-w-[350px] md:max-w-[450px] object-contain animate-fade-in-right"
+                        className="relative z-10 w-[60%] md:w-[80%] max-w-[350px] md:max-w-[450px] object-contain animate-fade-in-right"
                     />
                 </div>
 
