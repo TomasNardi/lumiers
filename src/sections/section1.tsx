@@ -10,7 +10,6 @@ const Section1 = (): JSX.Element => {
                 <Galaxy
                     mouseInteraction={false}
                     mouseRepulsion={false}
-                    /* MÁS LUCES EN MOBILE */
                     density={window.innerWidth < 768 ? 0.45 : 0.2}
                     glowIntensity={window.innerWidth < 768 ? 0.25 : 0.1}
                     saturation={0.1}
@@ -53,18 +52,19 @@ const Section1 = (): JSX.Element => {
                     <img
                         src="https://i.ibb.co/cc05jmn9/pngwing-com.png"
                         alt=""
-                        className="relative z-10 w-[75%] md:w-[80%] max-w-[350px] md:max-w-[450px] object-contain animate-fade-in-right"
+                        className="relative z-10 w-[70%] md:w-[80%] max-w-[350px] md:max-w-[450px] object-contain animate-fade-in-right"
                     />
                 </div>
 
                 {/* COLUMNA 2 */}
-                <div className="relative z-10 col-span-1 flex flex-col items-start justify-center mt-10 p-3 md:p-10 text-center md:text-left animate-fade-in-up">
+                {/* <-- CAMBIO: items-center en mobile, md:items-start en desktop --> */}
+                <div className="relative z-10 col-span-1 flex flex-col items-center md:items-start justify-center mt-10 p-3 md:p-10 text-center md:text-left animate-fade-in-up">
 
-                    <h1 className="text-5xl md:text-7xl font-extrabold tracking-tight mb-4 drop-shadow-[0_2px_6px_rgba(255,255,255,0.60)] ">
+                    <h1 className="text-4xl md:text-7xl font-extrabold tracking-tight mb-4 drop-shadow-[0_2px_6px_rgba(255,255,255,0.60)] ">
                         LUMIER AROMAS
                     </h1>
                     
-                    <p className="mb-5 text-md md:text-base animate-fade-in-up">Store Online de Velas y fragancias.</p>
+                    <p className="mb-5 text-lg md:text-base animate-fade-in-up">Store Online de Velas y fragancias.</p>
 
                     <div className="hidden md:block h-0.5 w-20 md:w-30 bg-gradient-to-r from-gray-50/60 via-gray-200/40 to-gray-400/20 mb-6 rounded-full mx-auto md:mx-0"></div>
 
@@ -77,18 +77,18 @@ const Section1 = (): JSX.Element => {
                     </p>
 
                     {/* BOTONES */}
-                    <div className="flex md:flex-row gap-5 md:gap-6 justify-center align-middle mt-4 relative z-30 animate-fade-in-left">
+                    {/* <-- CAMBIO: w-full en mobile, centran el contenido; md:w-auto y md:justify-start para desktop --> */}
+                    <div className="flex w-full md:w-auto flex-col md:flex-row items-center justify-center md:justify-start gap-5 md:gap-6 mt-4 relative z-30 animate-fade-in-left">
 
                         <button className="
                             z-30 flex items-center gap-2
-                            px-2 py-1 md:px-6 md:py-2
+                            px-6 py-2 md:px-6 md:py-2
                             rounded-full text-white font-medium
                             text-sm md:text-xl
                             bg-gradient-to-r from-lime-700 via-lime-600 to-lime-500
                             transition-all duration-300 ease-in-out
                             hover:-translate-y-1 hover:opacity-85 cursor-pointer
                             shadow-md active:scale-95
-                            
                         ">
                             Ir a la Tienda <FcPaid className="text-lg md:text-xl " />
                         </button>
@@ -99,8 +99,6 @@ const Section1 = (): JSX.Element => {
                             bg-gradient-to-r from-neutral-700 via-neutral-600 to-neutral-500
                             transition-all duration-300 ease-in-out
                             hover:-translate-y-1 hover:opacity-85 cursor-pointer
-                             
-                            
                         ">
                             Contactar
                         </button>
