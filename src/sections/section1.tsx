@@ -2,6 +2,19 @@ import { FcPaid, FcNext, FcPrevious } from "react-icons/fc";
 import Plasma from "../background/Plasma.jsx";
 
 const Section1 = (): JSX.Element => {
+
+    const irTienda = () => {
+        window.open("https://lumierearomasshop.empretienda.com.ar/", "_blank");
+    };
+
+    const irContacto = () => {
+       window.open(
+    "https://wa.me/5491135209713?text=Hola!%20Quiero%20info%20",
+    "_blank"
+);
+
+    };
+
     return (
         <div className="section h-screen text-white relative overflow-hidden ">
 
@@ -33,17 +46,14 @@ const Section1 = (): JSX.Element => {
                 {/* COLUMNA 1 */}
                 <div className="relative col-span-1 flex items-center justify-center">
 
-                    {/* TEXTO SUPERIOR */}
                     <p className="absolute z-20 top-5 left-0 md:left-40 select-none text-xs md:text-xl bg-gradient-to-r from-gray-600/95 via-gray-500 to-gray-600/90 text-white font-extralight drop-shadow p-2 md:p-3 rounded-3xl shadow-xl animate-[sink_2s_ease-in-out_infinite] flex items-center gap-2">
                         Nuevas Fragancias <FcNext />
                     </p>
 
-                    {/* TEXTO INFERIOR */}
                     <p className="absolute z-20 -bottom-2 md:bottom-10 right-0 md:right-20 font-extralight bg-gradient-to-r from-gray-600/95 via-gray-500 to-gray-400 text-white text-xs md:text-xl p-2 md:p-3 rounded-3xl shadow-xl select-none animate-[sink_4s_ease-in-out_infinite] flex items-center gap-2">
                         <FcPrevious /> Huele a Huerta y Manzanilla
                     </p>
 
-                    {/* IMAGEN */}
                     <img
                         src="https://i.ibb.co/cc05jmn9/pngwing-com.png"
                         alt=""
@@ -58,7 +68,9 @@ const Section1 = (): JSX.Element => {
                         LUMIERE AROMAS
                     </h1>
 
-                    <p className="mb-5 text-lg md:text-base animate-fade-in-up font-thin">Lumiere Store Online - Velas y fragancias.</p>
+                    <p className="mb-5 text-lg md:text-base animate-fade-in-up font-thin">
+                        Lumiere Store Online - Velas y fragancias.
+                    </p>
 
                     <div className="hidden md:block h-0.5 w-20 md:w-30 bg-gradient-to-r from-gray-50/60 via-gray-200/40 to-gray-400/20 mb-6 rounded-full mx-auto md:mx-0"></div>
 
@@ -80,12 +92,14 @@ const Section1 = (): JSX.Element => {
                     <div className="flex w-full md:w-auto flex-col md:flex-row items-center justify-center md:justify-start gap-5 md:gap-6 mt-4 relative z-30 animate-fade-in-left">
 
                         <button
+                            onClick={irTienda}
                             className="z-30 flex items-center gap-2 px-6 py-2 md:px-6 md:py-2 rounded-full text-white font-medium text-sm md:text-xl bg-gradient-to-r from-lime-700 via-lime-600 to-lime-500 transition-all duration-300 ease-in-out hover:-translate-y-1 hover:opacity-85 cursor-pointer shadow-md active:scale-95 shadow-[0_0_8px_rgba(132,204,22,a0.45)] hover:shadow-[0_0_22px_rgba(163,230,53,1)]"
                         >
                             Ir a la Tienda <FcPaid className="text-lg md:text-xl" />
                         </button>
 
                         <button
+                            onClick={irContacto}
                             className="z-30 px-6 py-2 rounded-full text-white font-medium text-sm md:text-xl bg-gradient-to-r from-neutral-700 via-neutral-600 to-neutral-500 transition-all duration-300 ease-in-out hover:-translate-y-1 hover:opacity-85 cursor-pointer shadow-[0_0_8px_rgba(255,255,255,0.25)] hover:shadow-[0_0_22px_rgba(255,255,255,0.55)]"
                         >
                             Contactar

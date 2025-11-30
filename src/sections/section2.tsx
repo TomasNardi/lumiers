@@ -30,7 +30,7 @@ const Section2 = () => {
 
                     {[
                         {
-                            img: "https://thecandleshop.com.ar/cdn/shop/files/REPUESTOCITRUS.png?v=1758807643&width=800",
+                            img: "https://i.ibb.co/5xvRrbRq/Whats-App-Image-2025-11-29-at-22-17-39.jpg",
                             label: "Repuesto Citrus"
                         },
                         {
