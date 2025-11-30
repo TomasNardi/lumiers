@@ -34,8 +34,8 @@ const Section2 = () => {
                             label: "Repuesto Citrus"
                         },
                         {
-                            img: "https://thecandleshop.com.ar/cdn/shop/files/A55D_VELAAROMATICATINNECTARINE_a.jpg?v=1690207576&width=800",
-                            label: "Nectarine Tin"
+                            img: "https://i.ibb.co/LzT9KnD6/Gemini-Generated-Image-g3luxsg3luxsg3lu-2.png",
+                            label: "Coffee Latte"
                         },
                         {
                             img: "https://thecandleshop.com.ar/cdn/shop/files/AccesorioVI124N-a.jpg?v=1760030122&width=800",

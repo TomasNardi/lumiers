@@ -1,6 +1,6 @@
-import { FcPaid, FcNext, FcPrevious } from "react-icons/fc";
+import { FcPaid} from "react-icons/fc";
 import Plasma from "../background/Plasma.jsx";
-
+import { ChevronRight, ChevronLeft } from "lucide-react";
 const Section1 = (): JSX.Element => {
 
     const irTienda = () => {
@@ -9,9 +9,9 @@ const Section1 = (): JSX.Element => {
 
     const irContacto = () => {
        window.open(
-    "https://wa.me/5491135209713?text=Hola!%20Quiero%20info%20",
-    "_blank"
-);
+            "https://wa.me/5491135209713?text=Hola!%20Quiero%20info%20",
+            "_blank"
+        );
 
     };
 
@@ -46,16 +46,41 @@ const Section1 = (): JSX.Element => {
                 {/* COLUMNA 1 */}
                 <div className="relative col-span-1 flex items-center justify-center">
 
-                    <p className="absolute z-20 top-5 left-0 md:left-40 select-none text-xs md:text-xl bg-gradient-to-r from-gray-600/95 via-gray-500 to-gray-600/90 text-white font-extralight drop-shadow p-2 md:p-3 rounded-3xl shadow-xl animate-[sink_2s_ease-in-out_infinite] flex items-center gap-2">
-                        Nuevas Fragancias <FcNext />
-                    </p>
+                <p 
+                className="
+                tracking-wide
+                    absolute z-20 top-30 left-0 md:left-40
+                    select-none text-xs md:text-xl
+                    bg-gradient-to-r from-red-500 via-red-600 to-red-800
+                    text-white font-extralight drop-shadow
+                    p-2 md:p-3 rounded-3xl shadow-xl
+                    animate-[sink_2s_ease-in-out_infinite]
+                    flex items-center gap-2
+                "
+                >
+                Vela de Llama Intensa 
+                <ChevronRight className="text-white w-4 h-4 md:w-6 md:h-6" />
+                </p>
 
-                    <p className="absolute z-20 -bottom-2 md:bottom-10 right-0 md:right-20 font-extralight bg-gradient-to-r from-gray-600/95 via-gray-500 to-gray-400 text-white text-xs md:text-xl p-2 md:p-3 rounded-3xl shadow-xl select-none animate-[sink_4s_ease-in-out_infinite] flex items-center gap-2">
-                        <FcPrevious /> Huele a Huerta y Manzanilla
-                    </p>
+                <p 
+                className="
+                tracking-wide
+
+                    absolute z-20 -bottom-2 md:bottom-30 right-0 md:right-25
+                    font-extralight
+                    bg-gradient-to-r from-red-800 via-red-600 to-red-500
+                    text-white text-xs md:text-xl
+                    p-2 md:p-3 rounded-3xl shadow-xl select-none
+                    animate-[sink_4s_ease-in-out_infinite]
+                    flex items-center gap-2
+                "
+                >
+                <ChevronLeft className="text-white w-4 h-4 md:w-6 md:h-6" />
+                Aroma Cheescake Intenso
+                </p>
 
                     <img
-                        src="https://i.ibb.co/cc05jmn9/pngwing-com.png"
+                        src="https://i.ibb.co/nN4DL4Zc/Gemini-Generated-Image-n5qhvyn5qhvyn5qh-1.png"
                         alt=""
                         className="relative z-10 w-[60%] md:w-[80%] max-w-[350px] md:max-w-[450px] object-contain animate-fade-in-right"
                     />
