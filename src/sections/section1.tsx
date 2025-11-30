@@ -49,7 +49,7 @@ const Section1 = (): JSX.Element => {
                 <p 
                 className="
                 tracking-wide
-                    absolute z-20 top-30 left-0 md:left-40
+                    absolute z-20 top-30 left-0 md:left-20
                     select-none text-xs md:text-xl
                     bg-gradient-to-r from-red-500 via-red-600 to-red-800
                     text-white font-extralight drop-shadow
@@ -66,7 +66,7 @@ const Section1 = (): JSX.Element => {
                 className="
                 tracking-wide
 
-                    absolute z-20 -bottom-2 md:bottom-30 right-0 md:right-25
+                    absolute z-20 -bottom-2 md:bottom-25 right-0 md:right-15
                     font-extralight
                     bg-gradient-to-r from-red-800 via-red-600 to-red-500
                     text-white text-xs md:text-xl
@@ -82,7 +82,7 @@ const Section1 = (): JSX.Element => {
                     <img
                         src="https://i.ibb.co/nN4DL4Zc/Gemini-Generated-Image-n5qhvyn5qhvyn5qh-1.png"
                         alt=""
-                        className="relative z-10 w-[60%] md:w-[80%] max-w-[350px] md:max-w-[450px] object-contain animate-fade-in-right"
+                        className="relative z-10 w-[60%] md:w-[80%] max-w-[350px] md:max-w-[500px] object-contain animate-fade-in-right"
                     />
                 </div>
 
