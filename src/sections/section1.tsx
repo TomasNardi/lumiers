@@ -3,7 +3,7 @@ import Galaxy from "../background/Galaxy";
 
 const Section1 = (): JSX.Element => {
     return (
-        <div className="section h-screen text-white relative overflow-hidden">
+        <div className="section h-screen text-white relative overflow-hidden ">
 
             
         {/* MARQUEE SUPERIOR */}
@@ -85,10 +85,10 @@ const Section1 = (): JSX.Element => {
                 <div className="relative z-10 col-span-1 flex flex-col items-center md:items-start justify-center mt-10 p-3 md:p-10 text-center md:text-left animate-fade-in-up">
 
                     <h1 className="text-4xl md:text-7xl font-extrabold tracking-tight mb-4 drop-shadow-[0_2px_6px_rgba(255,255,255,0.60)] ">
-                        LUMIER AROMAS
+                        LUMIERE AROMAS
                     </h1>
                     
-                    <p className="mb-5 text-lg md:text-base animate-fade-in-up">Lumier Store Online - Velas y fragancias.</p>
+                    <p className="mb-5 text-lg md:text-base animate-fade-in-up font-thin">Lumiere Store Online - Velas y fragancias.</p>
 
                     <div className="hidden md:block h-0.5 w-20 md:w-30 bg-gradient-to-r from-gray-50/60 via-gray-200/40 to-gray-400/20 mb-6 rounded-full mx-auto md:mx-0"></div>
 

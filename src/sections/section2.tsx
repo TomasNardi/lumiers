@@ -8,7 +8,7 @@ const Section2 = () => {
                 </h2>
 
                 <p className="text-sm md:text-lg p-2  text-center">
-                    Bienvenido a LUMIERS, donde cada vela está diseñada para transformar espacios y emociones. <br />
+                    Bienvenido a LUMIERE AROMAS, donde cada vela está diseñada para transformar espacios y emociones. <br />
                     Nuestros aromas exclusivos —creados con ceras premium y esencias de alta pureza— ofrecen una fragancia duradera, equilibrada y auténtica.
                 </p>
 

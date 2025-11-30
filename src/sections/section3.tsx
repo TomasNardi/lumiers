@@ -9,7 +9,7 @@ const Section3: React.FC<SectionProps> = ({ fullpageApi }) => {
     <div className="section relative flex flex-col items-center justify-center text-white px-6">
 
       <h2 className="text-2xl md:text-3xl font-semibold mb-3 md:mb-4 text-center">
-        LUMIERS - STORE ONLINE
+        LUMIERE AROMAS - STORE ONLINE
       </h2>
 
       <p className="text-base md:text-lg text-center mb-8 md:mb-10">
