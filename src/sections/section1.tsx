@@ -49,7 +49,7 @@ const Section1 = (): JSX.Element => {
                 <p 
                 className="
                 tracking-wide
-                    absolute z-20 top-30 left-0 md:left-20
+                    absolute z-20 top-10 left-0 md:left-20
                     select-none text-xs md:text-xl
                     bg-gradient-to-r from-red-500 via-red-600 to-red-800
                     text-white font-extralight drop-shadow
@@ -66,7 +66,7 @@ const Section1 = (): JSX.Element => {
                 className="
                 tracking-wide
 
-                    absolute z-20 -bottom-2 md:bottom-25 right-0 md:right-15
+                    absolute z-20 bottom-4 md:bottom-25 right-0 md:right-15
                     font-extralight
                     bg-gradient-to-r from-red-800 via-red-600 to-red-500
                     text-white text-xs md:text-xl
@@ -82,12 +82,12 @@ const Section1 = (): JSX.Element => {
                     <img
                         src="https://i.ibb.co/nN4DL4Zc/Gemini-Generated-Image-n5qhvyn5qhvyn5qh-1.png"
                         alt=""
-                        className="relative z-10 w-[60%] md:w-[80%] max-w-[350px] md:max-w-[500px] object-contain animate-fade-in-right"
+                        className="relative z-10 w-[75%] md:w-[80%] max-w-[350px] md:max-w-[500px] object-contain animate-fade-in-right"
                     />
                 </div>
 
                 {/* COLUMNA 2 */}
-                <div className="relative z-10 col-span-1 flex flex-col items-center md:items-start justify-center mt-10 p-3 md:p-10 text-center md:text-left animate-fade-in-up">
+                <div className="relative z-10 col-span-1 flex flex-col items-center md:items-start justify-center  p-3 md:p-10 text-center md:text-left animate-fade-in-up">
 
                     <h1 className="text-4xl md:text-7xl font-extrabold tracking-tight mb-4 drop-shadow-[0_2px_6px_rgba(255,255,255,0.60)] ">
                         LUMIERE AROMAS
@@ -114,18 +114,18 @@ const Section1 = (): JSX.Element => {
                     />
 
                     {/* BOTONES */}
-                    <div className="flex w-full md:w-auto flex-col md:flex-row items-center justify-center md:justify-start gap-5 md:gap-6 mt-4 relative z-30 animate-fade-in-left">
+                    <div className="flex w-full md:w-auto flex-col md:flex-row items-center justify-center md:justify-start gap-2 md:gap-6 mt-4 relative z-30 animate-fade-in-left">
 
                         <button
                             onClick={irTienda}
-                            className="z-30 flex items-center gap-2 px-6 py-2 md:px-6 md:py-2 rounded-full text-white font-medium text-sm md:text-xl bg-gradient-to-r from-lime-700 via-lime-600 to-lime-500 transition-all duration-300 ease-in-out hover:-translate-y-1 hover:opacity-85 cursor-pointer shadow-md active:scale-95 shadow-[0_0_8px_rgba(132,204,22,a0.45)] hover:shadow-[0_0_22px_rgba(163,230,53,1)]"
+                            className="z-30 flex items-center gap-2 px-6 py-2 md:px-6 md:py-2 rounded-full text-white font-medium text-lg md:text-xl bg-gradient-to-r from-lime-700 via-lime-600 to-lime-500 transition-all duration-300 ease-in-out hover:-translate-y-1 hover:opacity-85 cursor-pointer shadow-md active:scale-95 shadow-[0_0_8px_rgba(132,204,22,a0.45)] hover:shadow-[0_0_22px_rgba(163,230,53,1)]"
                         >
                             Ir a la Tienda <FcPaid className="text-lg md:text-xl" />
                         </button>
 
                         <button
                             onClick={irContacto}
-                            className="z-30 px-6 py-2 rounded-full text-white font-medium text-sm md:text-xl bg-gradient-to-r from-neutral-700 via-neutral-600 to-neutral-500 transition-all duration-300 ease-in-out hover:-translate-y-1 hover:opacity-85 cursor-pointer shadow-[0_0_8px_rgba(255,255,255,0.25)] hover:shadow-[0_0_22px_rgba(255,255,255,0.55)]"
+                            className="z-30 px-6 py-2 rounded-full text-white font-medium text-lg md:text-xl bg-gradient-to-r from-neutral-700 via-neutral-600 to-neutral-500 transition-all duration-300 ease-in-out hover:-translate-y-1 hover:opacity-85 cursor-pointer shadow-[0_0_8px_rgba(255,255,255,0.25)] hover:shadow-[0_0_22px_rgba(255,255,255,0.55)]"
                         >
                             Contactar
                         </button>
