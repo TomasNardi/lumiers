@@ -4,7 +4,6 @@ import { ChevronRight, ChevronLeft } from "lucide-react";
 import { memo } from "react";
 
 // -------------------------TYPES -------------------------------
-
 type MarqueProps = { 
     motive: string , 
     percent: number,
@@ -12,10 +11,7 @@ type MarqueProps = {
     className? : string
 };
 
-// className="absolute top-0 left-0 w-full z-50 bg-white text-black py-1 overflow-hidden"
-
 // ------------------------- COMPONENT -------------------------------
-
     const BlackFriday = memo(({className,  motive , percent , type } : MarqueProps) => { 
 
         return (
@@ -28,7 +24,6 @@ type MarqueProps = {
     });
 
 // ------------------------------- COMPONENT -----------------------------
-
 const Section1 = (): JSX.Element => {
 
     const irTienda = () => {
@@ -58,11 +53,11 @@ const Section1 = (): JSX.Element => {
             <div className="absolute inset-0 z-0 pointer-events-none">
                 <PlasmaMemo
                     color="#f59f2f"
-                    speed={0.6}
+                    speed={0.5}
                     direction="forward"
-                    scale={1.1}
-                    opacity={0.8}
-                    mouseInteractive={true}
+                    scale={1.4}
+                    opacity={0.5}
+                    mouseInteractive={false}
                 />
             </div>
 
