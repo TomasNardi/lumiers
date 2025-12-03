@@ -16,7 +16,7 @@ const Section1 = (): JSX.Element => {
     };
 
     return (
-        <div className="section h-screen text-white relative overflow-hidden ">
+        <div className="section h-screen text-white relative ">
 
             {/* MARQUEE SUPERIOR */}
             <div className="absolute top-0 left-0 w-full z-50 bg-white text-black py-1 overflow-hidden">
@@ -31,7 +31,7 @@ const Section1 = (): JSX.Element => {
             {/* BG PLASMA */}
             <div className="absolute inset-0 z-0 pointer-events-none">
                 <Plasma
-                    color="#ff6b35"
+                    color="#f59f2f"
                     speed={0.6}
                     direction="forward"
                     scale={1.1}
@@ -41,19 +41,32 @@ const Section1 = (): JSX.Element => {
             </div>
 
             {/* CONTENIDO PRINCIPAL */}
-            <div className="relative z-10 grid grid-cols-1 md:grid-cols-2 md:gap-20 h-full p-2 md:p-12">
+            <div className="relative z-10 grid grid-cols-1 md:grid-cols-2 md:gap-29 h-full p-5 md:p-12">
 
                 {/* COLUMNA 1 */}
                 <div className="relative col-span-1 flex items-center justify-center">
 
                 <p 
                 className="
-                tracking-wide
-                    absolute z-20 top-10 left-0 md:left-20
-                    select-none text-xs md:text-xl
+                    tracking-wide
+                    absolute z-20 
+                    
+                    top-10 
+                    lg:top-25
+                    xl:top-30
+                    2xl:top-60
+                    
+                    left-0 
+                    md:left-20 
+                    lg:left-50
+                    xl:-left-10
+                    2xl:left-15
+
+                    select-none text-xs md:text-xl 
                     bg-gradient-to-r from-red-500 via-red-600 to-red-800
                     text-white font-extralight drop-shadow
-                    p-2 md:p-3 rounded-3xl shadow-xl
+                    p-2
+                    md:p-3 rounded-3xl shadow-xl
                     animate-[sink_2s_ease-in-out_infinite]
                     flex items-center gap-2
                 "
@@ -62,22 +75,30 @@ const Section1 = (): JSX.Element => {
                 <ChevronRight className="text-white w-4 h-4 md:w-6 md:h-6" />
                 </p>
 
-                <p 
-                className="
-                tracking-wide
+                {/* TAG INFERIOR — AROMA */}
+                    <p
+                    className="
+                        absolute z-20 tracking-wide select-none
+                        flex items-center gap-2 font-extralight
 
-                    absolute z-20 bottom-4 md:bottom-25 right-0 md:right-15
-                    font-extralight
-                    bg-gradient-to-r from-red-800 via-red-600 to-red-500
-                    text-white text-xs md:text-xl
-                    p-2 md:p-3 rounded-3xl shadow-xl select-none
-                    animate-[sink_4s_ease-in-out_infinite]
-                    flex items-center gap-2
-                "
-                >
-                <ChevronLeft className="text-white w-4 h-4 md:w-6 md:h-6" />
-                Aroma Cheescake Intenso
-                </p>
+                        /* POSITION */
+                        bottom-35 md:bottom-25 2xl:bottom-60
+                        right-0 md:right-15 lg:-right-15 2xl:right-8
+
+                        /* TEXT */
+                        text-xs md:text-xl text-white
+
+                        /* STYLE */
+                        bg-gradient-to-r from-red-800 via-red-600 to-red-500
+                        p-2 md:p-3 rounded-3xl shadow-xl
+
+                        /* ANIMATION */
+                        animate-[sink_4s_ease-in-out_infinite]
+                    "
+                    >
+                    <ChevronLeft className="text-white w-4 h-4 md:w-6 md:h-6" />
+                    Aroma Cheesecake Intenso
+                    </p>
 
                     <img
                         src="https://i.ibb.co/nN4DL4Zc/Gemini-Generated-Image-n5qhvyn5qhvyn5qh-1.png"
@@ -87,7 +108,7 @@ const Section1 = (): JSX.Element => {
                 </div>
 
                 {/* COLUMNA 2 */}
-                <div className="relative z-10 col-span-1 flex flex-col items-center md:items-start justify-center  p-3 md:p-10 text-center md:text-left animate-fade-in-up">
+                <div className="relative z-10 col-span-1 flex flex-col items-center md:items-start justify-center p-3 md:p-5 text-center md:text-left animate-fade-in-up">
 
                     <h1 className="text-4xl md:text-7xl font-extrabold tracking-tight mb-4 drop-shadow-[0_2px_6px_rgba(255,255,255,0.60)] ">
                         LUMIERE AROMAS
