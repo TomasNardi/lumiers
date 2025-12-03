@@ -1,6 +1,34 @@
 import { FcPaid} from "react-icons/fc";
 import Plasma from "../background/Plasma.jsx";
 import { ChevronRight, ChevronLeft } from "lucide-react";
+import { memo } from "react";
+
+// -------------------------TYPES -------------------------------
+
+type MarqueProps = { 
+    motive: string , 
+    percent: number,
+    type : string,
+    className? : string
+};
+
+// className="absolute top-0 left-0 w-full z-50 bg-white text-black py-1 overflow-hidden"
+
+// ------------------------- COMPONENT -------------------------------
+
+    const BlackFriday = memo(({className,  motive , percent , type } : MarqueProps) => { 
+
+        return (
+            <div  className={className}>
+                <div className="marquee-wrapper">
+                    <div className="marquee-content">💥 {motive} • {percent} % {type} 💥</div>
+                </div>
+            </div>
+        )
+    });
+
+// ------------------------------- COMPONENT -----------------------------
+
 const Section1 = (): JSX.Element => {
 
     const irTienda = () => {
@@ -15,22 +43,20 @@ const Section1 = (): JSX.Element => {
 
     };
 
+    // Memorise Plasma for better performance
+    const PlasmaMemo = memo(Plasma)
+
     return (
         <div className="section h-screen text-white relative ">
-
-            {/* MARQUEE SUPERIOR */}
-            <div className="absolute top-0 left-0 w-full z-50 bg-white text-black py-1 overflow-hidden">
-                <div className="marquee-wrapper">
-                    <div className="marquee-content">💥 BLACK FRIDAY • 20 % OFF 💥</div>
-                    <div className="marquee-content">💥 BLACK FRIDAY • 20 % OFF 💥</div>
-                    <div className="marquee-content">💥 BLACK FRIDAY • 20 % OFF 💥</div>
-                    <div className="marquee-content">💥 BLACK FRIDAY • 20 % OFF 💥</div>
-                </div>
-            </div>
+            <BlackFriday 
+            className="absolute top-0 left-0 w-full z-50 bg-white text-black py-1 overflow-hidden"
+            motive="Black Friday" 
+            percent = {25} 
+            type="OFF" />
 
             {/* BG PLASMA */}
             <div className="absolute inset-0 z-0 pointer-events-none">
-                <Plasma
+                <PlasmaMemo
                     color="#f59f2f"
                     speed={0.6}
                     direction="forward"
@@ -54,7 +80,7 @@ const Section1 = (): JSX.Element => {
                     top-10 
                     lg:top-25
                     xl:top-30
-                    2xl:top-60
+                    2xl:top-20
                     
                     left-0 
                     md:left-20 
@@ -62,7 +88,8 @@ const Section1 = (): JSX.Element => {
                     xl:-left-10
                     2xl:left-15
 
-                    select-none text-xs md:text-xl 
+                    select-none                     text-[10px]
+                    md:text-xl 
                     bg-gradient-to-r from-red-500 via-red-600 to-red-800
                     text-white font-extralight drop-shadow
                     p-2
@@ -76,35 +103,38 @@ const Section1 = (): JSX.Element => {
                 </p>
 
                 {/* TAG INFERIOR — AROMA */}
-                    <p
-                    className="
-                        absolute z-20 tracking-wide select-none
-                        flex items-center gap-2 font-extralight
+                <p
+                className="
+                    absolute z-20 tracking-wide select-none
+                    flex items-center gap-2 font-extralight
+                    /* POSITION */
+                    bottom-5
+                    md:bottom-25 
+                    2xl:bottom-15
 
-                        /* POSITION */
-                        bottom-35 md:bottom-25 2xl:bottom-60
-                        right-0 md:right-15 lg:-right-15 2xl:right-8
+                    right-0 
+                    md:right-15 
+                    lg:-right-15 
+                    2xl:right-8
 
-                        /* TEXT */
-                        text-xs md:text-xl text-white
-
-                        /* STYLE */
-                        bg-gradient-to-r from-red-800 via-red-600 to-red-500
-                        p-2 md:p-3 rounded-3xl shadow-xl
-
-                        /* ANIMATION */
-                        animate-[sink_4s_ease-in-out_infinite]
-                    "
-                    >
-                    <ChevronLeft className="text-white w-4 h-4 md:w-6 md:h-6" />
-                    Aroma Cheesecake Intenso
-                    </p>
-
-                    <img
-                        src="https://i.ibb.co/nN4DL4Zc/Gemini-Generated-Image-n5qhvyn5qhvyn5qh-1.png"
-                        alt=""
-                        className="relative z-10 w-[75%] md:w-[80%] max-w-[350px] md:max-w-[500px] object-contain animate-fade-in-right"
-                    />
+                    /* TEXT */
+                    text-[10px]
+                    md:text-xl text-white
+                    /* STYLE */
+                    bg-gradient-to-r from-red-800 via-red-600 to-red-500
+                    p-2 md:p-3 rounded-3xl shadow-xl
+                    /* ANIMATION */
+                    animate-[sink_4s_ease-in-out_infinite]
+                "
+                >
+                <ChevronLeft className="text-white w-4 h-4 md:w-6 md:h-6" />
+                Aroma Cheesecake Intenso
+                </p>
+                <img
+                    src="https://i.ibb.co/nN4DL4Zc/Gemini-Generated-Image-n5qhvyn5qhvyn5qh-1.png"
+                    alt=""
+                    className="relative z-10 w-[75%] md:w-[80%] max-w-[350px] md:max-w-[500px] object-contain animate-fade-in-right"
+                />
                 </div>
 
                 {/* COLUMNA 2 */}
