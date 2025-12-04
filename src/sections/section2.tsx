@@ -20,7 +20,6 @@ const Section2 = () => {
                         gap-4            /* MOBILE */
                         p-4              /* MOBILE */
                         mt-6             /* MOBILE */
-
                         md:grid-cols-4   /* PC ORIGINAL */
                         md:gap-10
                         md:p-10
@@ -34,11 +33,11 @@ const Section2 = () => {
                             label: "Repuesto Citrus"
                         },
                         {
-                            img: "https://i.ibb.co/NgX4HZ2z/Gemini-Generated-Image-mz88ydmz88ydmz88.png",
+                            img: "https://i.ibb.co/V0fxK4KB/Gemini-Generated-Image-mz88ydmz88ydmz88.png",
                             label: "Coffee Latte"
                         },
                         {
-                            img: "https://thecandleshop.com.ar/cdn/shop/files/AccesorioVI124N-a.jpg?v=1760030122&width=800",
+                            img: "https://i.ibb.co/6cR1KPGV/unnamed.jpg",
                             label: "Accesorio VI124"
                         },
                         {
