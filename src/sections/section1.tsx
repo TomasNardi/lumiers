@@ -22,6 +22,9 @@ type MarqueProps = {
             <div  className={className}>
                 <div className="marquee-wrapper">
                     <div className="marquee-content">💥 {motive} • {percent} % {type} 💥</div>
+                    <div className="marquee-content">💥 {motive} • {percent} % {type} 💥</div>
+                    <div className="marquee-content">💥 {motive} • {percent} % {type} 💥</div>
+                    <div className="marquee-content">💥 {motive} • {percent} % {type} 💥</div>
                 </div>
             </div>
         )
