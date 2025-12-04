@@ -41,7 +41,7 @@ const Section2 = () => {
                             label: "Accesorio VI124"
                         },
                         {
-                            img: "https://thecandleshop.com.ar/cdn/shop/files/A51-Nectarine.jpg?v=1754071511&width=800",
+                            img: "https://i.ibb.co/21Spjm4W/Gemini-Generated-Image-ft3v4yft3v4yft3v.png",
                             label: "Vela Nectarine"
                         }
                     ].map((item, i) => (
