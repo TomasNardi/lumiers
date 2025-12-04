@@ -11,6 +11,10 @@ type MarqueProps = {
     className? : string
 };
 
+// type StateProps = { 
+//     argstype: string
+// }
+
 // ------------------------- COMPONENT -------------------------------
     const BlackFriday = memo(({className,  motive , percent , type } : MarqueProps) => { 
 
@@ -71,22 +75,22 @@ const Section1 = (): JSX.Element => {
                 className="
                     tracking-wide
                     absolute z-20 
-                    
                     top-10 
                     lg:top-25
                     xl:top-30
                     2xl:top-20
-                    
                     left-0 
                     md:left-20 
                     lg:left-50
                     xl:-left-10
                     2xl:left-15
-
-                    select-none                     text-[10px]
+                    select-none
+                    text-[10px]
                     md:text-xl 
-                    bg-gradient-to-r from-red-500 via-red-600 to-red-800
-                    text-white font-extralight drop-shadow
+                    bg-gradient-to-r from-yellow-400 via-yellow-600 to-yellow-700
+                    text-white 
+                    font-extralight 
+                    drop-shadow
                     p-2
                     md:p-3 rounded-3xl shadow-xl
                     animate-[sink_2s_ease-in-out_infinite]
@@ -100,8 +104,12 @@ const Section1 = (): JSX.Element => {
                 {/* TAG INFERIOR — AROMA */}
                 <p
                 className="
-                    absolute z-20 tracking-wide select-none
-                    flex items-center gap-2 font-extralight
+                    absolute z-20 
+                    tracking-wide 
+                    select-none
+                    flex items-center 
+                    gap-2 
+                    font-extralight
                     /* POSITION */
                     bottom-5
                     md:bottom-25 
@@ -116,7 +124,7 @@ const Section1 = (): JSX.Element => {
                     text-[10px]
                     md:text-xl text-white
                     /* STYLE */
-                    bg-gradient-to-r from-red-800 via-red-600 to-red-500
+                    bg-gradient-to-r from-yellow-700 via-yellow-600 to-yellow-400
                     p-2 md:p-3 rounded-3xl shadow-xl
                     /* ANIMATION */
                     animate-[sink_4s_ease-in-out_infinite]
