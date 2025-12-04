@@ -33,7 +33,7 @@ const Section2 = () => {
                             label: "Repuesto Citrus"
                         },
                         {
-                            img: "https://i.ibb.co/V0fxK4KB/Gemini-Generated-Image-mz88ydmz88ydmz88.png",
+                            img: "https://i.ibb.co/XkrSHVxh/Gemini-Generated-Image-8kvceh8kvceh8kvc.png",
                             label: "Coffee Latte"
                         },
                         {
