@@ -29,7 +29,7 @@ const Section2 = () => {
 
                     {[
                         {
-                            img: "https://i.ibb.co/5xvRrbRq/Whats-App-Image-2025-11-29-at-22-17-39.jpg",
+                            img: "https://i.ibb.co/jvj8PR22/Gemini-Generated-Image-uzk9sfuzk9sfuzk9-1.png",
                             label: "Repuesto Citrus"
                         },
                         {
