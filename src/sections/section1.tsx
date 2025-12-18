@@ -1,33 +1,37 @@
 import { FcPaid} from "react-icons/fc";
 import Plasma from "../background/Plasma.jsx";
-import { ChevronRight, ChevronLeft } from "lucide-react";
+import { ChevronRight, ChevronLeft} from "lucide-react";
 import { memo } from "react";
+import { useNavigate } from "react-router-dom";
 
-// -------------------------TYPES -------------------------------
-type MarqueProps = { 
-    motive: string , 
-    percent: number,
-    type : string,
-    className? : string
+
+type ButtonContactProps = { 
+    Onclick? : () => void , 
+    className? : string, 
 };
 
 // ------------------------- COMPONENT -------------------------------
-    const BlackFriday = memo(({className,  motive , percent , type } : MarqueProps) => { 
-
-        return (
-            <div  className={className}>
-                <div className="marquee-wrapper">
-                    <div className="marquee-content">💥 {motive} • {percent} % {type} 💥</div>
-                </div>
-            </div>
-        )
+    const ButtonContact = memo(({ className , Onclick} : ButtonContactProps) => { 
+        return ( 
+        <button
+            onClick={Onclick}
+            className={className}
+        >
+            Ir a la Tienda <FcPaid className="text-lg md:text-xl" />
+        </button>)
     });
 
-// ------------------------------- COMPONENT -----------------------------
-const Section1 = (): JSX.Element => {
+// Memorise Plasma for better performance
+const PlasmaMemo = memo(Plasma)
+
+// ------------------------------- COMPONENT PRINCIPAL -----------------------------
+const Section1 = (): JSX.Element => {   
+
+    // Navigation const
+    const Navigate = useNavigate();
 
     const irTienda = () => {
-        window.open("https://lumierearomasshop.empretienda.com.ar/", "_blank");
+     Navigate("/tienda")
     };
 
     const irContacto = () => {
@@ -35,19 +39,11 @@ const Section1 = (): JSX.Element => {
             "https://wa.me/5491135209713?text=Hola!%20Quiero%20info%20",
             "_blank"
         );
-
     };
-
-    // Memorise Plasma for better performance
-    const PlasmaMemo = memo(Plasma)
 
     return (
         <div className="section h-screen text-white relative ">
-            <BlackFriday 
-            className="absolute top-0 left-0 w-full z-50 bg-white text-black py-1 overflow-hidden"
-            motive="Black Friday" 
-            percent = {25} 
-            type="OFF" />
+        
 
             {/* BG PLASMA */}
             <div className="absolute inset-0 z-0 pointer-events-none">
@@ -162,12 +158,10 @@ const Section1 = (): JSX.Element => {
                     {/* BOTONES */}
                     <div className="flex w-full md:w-auto flex-col md:flex-row items-center justify-center md:justify-start gap-2 md:gap-6 mt-4 relative z-30 animate-fade-in-left">
 
-                        <button
-                            onClick={irTienda}
-                            className="z-30 flex items-center gap-2 px-6 py-2 md:px-6 md:py-2 rounded-full text-white font-medium text-lg md:text-xl bg-gradient-to-r from-lime-700 via-lime-600 to-lime-500 transition-all duration-300 ease-in-out hover:-translate-y-1 hover:opacity-85 cursor-pointer shadow-md active:scale-95 shadow-[0_0_8px_rgba(132,204,22,a0.45)] hover:shadow-[0_0_22px_rgba(163,230,53,1)]"
-                        >
-                            Ir a la Tienda <FcPaid className="text-lg md:text-xl" />
-                        </button>
+                        <ButtonContact 
+                        Onclick = {irTienda}
+                        className = "z-30 flex items-center gap-2 px-6 py-2 md:px-6 md:py-2 rounded-full text-white font-medium text-lg md:text-xl bg-gradient-to-r from-lime-700 via-lime-600 to-lime-500 transition-all duration-300 ease-in-out hover:-translate-y-1 hover:opacity-85 cursor-pointer shadow-md active:scale-95 shadow-[0_0_8px_rgba(132,204,22,a0.45)] hover:shadow-[0_0_22px_rgba(163,230,53,1)]"
+                        />
 
                         <button
                             onClick={irContacto}
