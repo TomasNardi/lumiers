@@ -1,66 +1,85 @@
-// ----------------------------------- INTERFACES ----------------------------------
-interface WindowProps {
-  className: string
-  children?: React.ReactNode
-}
+import { useContext } from "react"
+import { ShopCartContext } from "../context/shopcart"
 
-interface GridProps {
-  className: string
-  children?: React.ReactNode
-}
-
-//--------------------------- TYPES --------------------------------------------- 
+// ---------------- TYPES ----------------
 type Product = {
   id: number
   title: string
   subtitle: string
-  imgsrc: string
+  imgsrc1: string
+  imgsrc2: string
   price: number
   stock: boolean
 }
 
 type ProductProps = Product & {
   className: string
+  onAdd: () => void
 }
 
-// ---------------------------------- COMPONENTS ----------------------------------
+// ---------------- COMPONENTS ----------------
+const Window = ({ className, children }: { className: string; children: React.ReactNode }) => (
+  <div className={className}>{children}</div>
+)
 
-// Layout principal
-const Window = ({ className, children }: WindowProps) => {
-  return (
-    <div className={className}>
-      {children}
-    </div>
-  )
-}
+const Grid = ({ className, children }: { className: string; children: React.ReactNode }) => (
+  <div className={className}>{children}</div>
+)
 
-// Grid contenedor
-const Grid = ({ className, children }: GridProps) => {
-  return (
-    <div className={className}>
-      {children}
-    </div>
-  )
-}
-
-// Card de producto (UN SOLO producto)
 const ProductCard = ({
   title,
   subtitle,
-  imgsrc,
+  imgsrc1,
+  imgsrc2,
   price,
   stock,
   className,
+  onAdd,
 }: ProductProps) => {
   return (
     <div className={className}>
-      <img
-        src={imgsrc}
-        alt={title}
-        className="h-48 object-cover rounded justify-self-center"
-      />
+      <div className="relative group overflow-hidden rounded">
+        <link rel="preload" as="image" href={imgsrc2} />
 
-      <h1 className="text-lg font-semibold mt-2">{title}</h1>
+        <img
+          src={imgsrc1}
+          alt={title}
+          className="
+            h-100
+            w-full
+            object-cover
+            transition-all
+            duration-500
+            ease-out
+            group-hover:opacity-0
+            group-hover:scale-105
+            group-hover:blur-[1px]
+          "
+        />
+
+        <img
+          src={imgsrc2}
+          alt={title}
+          className="
+            absolute
+            inset-0
+            h-100
+            w-full
+            object-cover
+            opacity-0
+            transition-all
+            duration-500
+            ease-out
+            group-hover:opacity-100
+            group-hover:scale-115
+          "
+        />
+      </div>
+
+      <h1 className="relative z-10 text-lg font-semibold mt-4">
+        {title}
+      </h1>
+
       <h2 className="text-sm text-gray-500">{subtitle}</h2>
 
       <p className="mt-2 font-bold">${price}</p>
@@ -71,8 +90,11 @@ const ProductCard = ({
 
       <button
         disabled={!stock}
-        className={`mt-3 w-full py-2 rounded text-white ${
-          stock ? "bg-black hover:bg-gray-800 cursor-pointer" : "bg-gray-400 cursor-not-allowed"
+        onClick={onAdd}
+        className={`mt-5 w-full py-2 rounded text-white ${
+          stock
+            ? "bg-neutral-900 hover:bg-gray-800 cursor-pointer"
+            : "bg-gray-400 cursor-not-allowed"
         }`}
       >
         Agregar al carrito
@@ -81,15 +103,14 @@ const ProductCard = ({
   )
 }
 
-// ---------------------------------- DATA ----------------------------------
-
+// ---------------- DATA ----------------
 const productos: Product[] = [
   {
     id: 1,
-    title: "Vela Aromática Vainilla",
+    title: "Vela Vainilla",
     subtitle: "Dulce y cálida",
-    imgsrc:
-      "https://encrypted-tbn2.gstatic.com/shopping?q=tbn:ANd9GcTMEKxQfgwB-IZ7yxmxe1r07BKGLNf5dJH8dPrKEHKSlokAeGBVbm6a9_i37gy9bYNNUVvLED4g_7tAv_I-MvpPoqQsWsS1qGF-MOt9GKrzu5XlSA_hkWeBV7KaQuVTbzNfTkyDNA&usqp=CAc",
+    imgsrc1: "https://thecandleshop.com.ar/cdn/shop/files/NV12P-a.jpg?v=1762349067&width=800",
+    imgsrc2: "https://thecandleshop.com.ar/cdn/shop/files/NV12P-a.jpg?v=1762349067&width=800",
     price: 12.99,
     stock: true,
   },
@@ -97,41 +118,71 @@ const productos: Product[] = [
     id: 2,
     title: "Vela Lavanda",
     subtitle: "Relajante natural",
-    imgsrc:
-      "https://encrypted-tbn1.gstatic.com/shopping?q=tbn:ANd9GcSCOR-drp6nrttw-Bi5nNSGVRlgAA8jGN35mfxxPHtLDgR0YlhAISWo2nheUOQRfwHi5n8EXEyaBxt4XvAMAK6vSYlQDoDCkLVXq_Lb2nM2Gb1_ZziuthsISDC1w3hgadeTUg5r1g&usqp=CAc",
+    imgsrc1: "https://thecandleshop.com.ar/cdn/shop/files/NV12RG-a.jpg?v=1762349067&width=800",
+    imgsrc2: "https://thecandleshop.com.ar/cdn/shop/files/NV12P-a.jpg?v=1762349067&width=800",
     price: 14.5,
     stock: true,
   },
   {
     id: 3,
-    title: "Vela Lavanda",
-    subtitle: "Relajante natural",
-    imgsrc:"https://encrypted-tbn1.gstatic.com/shopping?q=tbn:ANd9GcSCOR-drp6nrttw-Bi5nNSGVRlgAA8jGN35mfxxPHtLDgR0YlhAISWo2nheUOQRfwHi5n8EXEyaBxt4XvAMAK6vSYlQDoDCkLVXq_Lb2nM2Gb1_ZziuthsISDC1w3hgadeTUg5r1g&usqp=CAc",
-    price: 14.5,
-    stock: true,
+    title: "Vela Sándalo",
+    subtitle: "Amaderada y profunda",
+    imgsrc1: "https://thecandleshop.com.ar/cdn/shop/files/NV11L-a.jpg?v=1762349067&width=800",
+    imgsrc2: "https://thecandleshop.com.ar/cdn/shop/files/NV12P-a.jpg?v=1762349067&width=800",
+    price: 16.25,
+    stock: false,
   },
   {
     id: 4,
-    title: "Vela Lavanda",
-    subtitle: "Relajante natural",
-    imgsrc:
-      "https://encrypted-tbn1.gstatic.com/shopping?q=tbn:ANd9GcSCOR-drp6nrttw-Bi5nNSGVRlgAA8jGN35mfxxPHtLDgR0YlhAISWo2nheUOQRfwHi5n8EXEyaBxt4XvAMAK6vSYlQDoDCkLVXq_Lb2nM2Gb1_ZziuthsISDC1w3hgadeTUg5r1g&usqp=CAc",
-    price: 14.5,
+    title: "Vela Cítrica",
+    subtitle: "Fresca y energizante",
+    imgsrc1: "https://thecandleshop.com.ar/cdn/shop/files/A53-HigoOriente.jpg?v=1754070424&width=800",
+    imgsrc2: "https://thecandleshop.com.ar/cdn/shop/files/NV12P-a.jpg?v=1762349067&width=800",
+    price: 13.75,
+    stock: true,
+  },
+  {
+    id: 5,
+    title: "Vela Rosa Blanca",
+    subtitle: "Suave y floral",
+    imgsrc1: "https://thecandleshop.com.ar/cdn/shop/files/NV11F-a.jpg?v=1762349067&width=800",
+    imgsrc2: "https://thecandleshop.com.ar/cdn/shop/files/NV12P-a.jpg?v=1762349067&width=800",
+    price: 15.99,
     stock: true,
   },
 ]
 
-// ---------------------------------- PAGE ----------------------------------
-
+// ---------------- PAGE ----------------
 const Home = () => {
+  const cart = useContext(ShopCartContext)
+  if (!cart) return null
+
   return (
-    <Window className="min-h-screen p-6 ">
-      <Grid className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 d-flex p-6 rounded">
-        {productos.map((producto) => (
+    <Window className="min-h-screen bg-neutral-200 px-10 py-16">
+      <Grid
+        className="
+          max-w-20xl
+          mx-auto
+          grid
+          grid-cols-1
+          sm:grid-cols-2
+          md:grid-cols-2
+          lg:grid-cols-3
+          gap-10
+        "
+      >
+        {productos.map(producto => (
           <ProductCard
             key={producto.id}
             {...producto}
-            className=" p-4 rounded shadow"
+            className="p-6 rounded-xl shadow-2xl border-2 border-neutral-200 bg-white"
+            onAdd={() =>
+              cart.addItem({
+                id: producto.id,
+                title: producto.title,
+                price: producto.price,
+              })
+            }
           />
         ))}
       </Grid>
