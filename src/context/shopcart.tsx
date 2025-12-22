@@ -1,5 +1,5 @@
 import { createContext, useEffect, useState } from "react"
-import { toast } from "react-toastify"
+// import { toast } from "react-toastify"
 
 // ---------------- TYPES ----------------
 export type CartItem = {
@@ -12,7 +12,9 @@ export type CartItem = {
 type ShopCartContextType = {
   items: CartItem[]
   addItem: (product: Omit<CartItem, "qty">) => void
+  decrementItem: (id: number) => void
   removeItem: (id: number) => void
+  cartQuantity: number
 }
 
 // --------------- CONTEXT ---------------
@@ -29,13 +31,13 @@ export const ShopCartProvider = ({ children }: ShopCartProviderProps) => {
     return stored ? JSON.parse(stored) : []
   })
 
+  useEffect(() => {
+    localStorage.setItem("ShopList", JSON.stringify(items))
+  }, [items])
+
+  // ➕ Agregar / incrementar
   const addItem = (product: Omit<CartItem, "qty">) => {
-    toast.success("🛒 Producto Agregado", {
-  style: {
-    boxShadow: "0px 15px 16px rgba(0,0,0,0.15)",
-    borderRadius: "8px",
-  },
-})
+    // toast.success("🛒 Producto agregado")
 
     setItems(prev => {
       const existing = prev.find(item => item.id === product.id)
@@ -52,16 +54,28 @@ export const ShopCartProvider = ({ children }: ShopCartProviderProps) => {
     })
   }
 
+  const decrementItem = (id: number) => {
+    setItems(prev =>
+      prev
+        .map(item =>
+          item.id === id ? { ...item, qty: item.qty - 1 } : item
+        )
+        .filter(item => item.qty > 0)
+    )
+  }
+
+  // 🗑 Eliminar producto completo
   const removeItem = (id: number) => {
     setItems(prev => prev.filter(item => item.id !== id))
   }
 
-  useEffect(() => {
-    localStorage.setItem("ShopList", JSON.stringify(items))
-  }, [items])
+  // 🔢 Cantidad total
+  const cartQuantity = items.reduce((acc, item) => acc + item.qty, 0)
 
   return (
-    <ShopCartContext.Provider value={{ items, addItem, removeItem }}>
+    <ShopCartContext.Provider
+      value={{ items, addItem, decrementItem, removeItem, cartQuantity }}
+    >
       {children}
     </ShopCartContext.Provider>
   )

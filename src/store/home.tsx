@@ -1,5 +1,7 @@
 import { useContext } from "react"
 import { ShopCartContext } from "../context/shopcart"
+import CartShop from "./cartshop"
+
 
 // ---------------- TYPES ----------------
 type Product = {
@@ -45,14 +47,13 @@ const ProductCard = ({
           src={imgsrc1}
           alt={title}
           className="
-            h-100
             w-full
             object-cover
             transition-all
             duration-500
             ease-out
             group-hover:opacity-0
-            group-hover:scale-105
+            group-hover:scale-110
             group-hover:blur-[1px]
           "
         />
@@ -63,7 +64,6 @@ const ProductCard = ({
           className="
             absolute
             inset-0
-            h-100
             w-full
             object-cover
             opacity-0
@@ -102,7 +102,6 @@ const ProductCard = ({
     </div>
   )
 }
-
 // ---------------- DATA ----------------
 const productos: Product[] = [
   {
@@ -157,37 +156,27 @@ const Home = () => {
   const cart = useContext(ShopCartContext)
   if (!cart) return null
 
-  return (
-    <Window className="min-h-screen bg-neutral-200 px-10 py-16">
-      <Grid
-        className="
-          max-w-20xl
-          mx-auto
-          grid
-          grid-cols-1
-          sm:grid-cols-2
-          md:grid-cols-2
-          lg:grid-cols-3
-          gap-10
-        "
-      >
-        {productos.map(producto => (
-          <ProductCard
-            key={producto.id}
-            {...producto}
-            className="p-6 rounded-xl shadow-2xl border-2 border-neutral-200 bg-white"
-            onAdd={() =>
-              cart.addItem({
-                id: producto.id,
-                title: producto.title,
-                price: producto.price,
-              })
-            }
-          />
-        ))}
-      </Grid>
-    </Window>
-  )
-}
+ return (
+  <Window className="min-h-screen bg-neutral-200 px-10 py-10 relative">
+    <Grid className="max-w-20xl mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-5">
+      {productos.map(producto => (
+        <ProductCard
+          key={producto.id}
+          {...producto}
+          className="p-6 rounded-xl shadow-2xl border-2 border-neutral-200 bg-white"
+          onAdd={() =>
+            cart.addItem({
+              id: producto.id,
+              title: producto.title,
+              price: producto.price,
+            })
+          }
+        />
+      ))}
+    </Grid>
+
+    {/*Carrito flotante */}
+    <CartShop />
+  </Window>)}
 
 export default Home

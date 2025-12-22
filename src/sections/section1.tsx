@@ -4,7 +4,6 @@ import { ChevronRight, ChevronLeft} from "lucide-react";
 import { memo } from "react";
 import { useNavigate } from "react-router-dom";
 
-
 type ButtonContactProps = { 
     Onclick? : () => void , 
     className? : string, 
