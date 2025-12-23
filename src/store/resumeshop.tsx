@@ -14,7 +14,7 @@ const ResumeShop = ({ open, onClose }: ResumeShopProps) => {
   const context = useContext(ShopCartContext)
   if (!context) return null
 
-  const { items, removeItem , addItem , decrementItem } = context
+  const { items, removeItem, addItem, decrementItem } = context
 
   const subtotal = items.reduce((acc, item) => acc + item.price * item.qty, 0)
 
@@ -54,52 +54,64 @@ const ResumeShop = ({ open, onClose }: ResumeShopProps) => {
                           </li>
                         ) : (
                           items.map((item) => (
-                           <li key={item.id} className="flex py-6">
-                            <div className="ml-4 flex flex-1 flex-col">
-                              <div>
-                                <div className="flex justify-between text-base font-medium text-gray-900">
-                                  <h3>{item.title}</h3>
-                                  <p className="ml-4">${(item.price * item.qty).toFixed(2)}</p>
-                                </div>
-                                <p className="mt-1 text-sm text-gray-500">Cant. {item.qty}</p>
-                              </div>
+                            <li key={item.id} className="flex py-6">
+                              <div className="ml-4 flex flex-1 flex-col">
+                                <div>
+                                   <img 
+                                      className='h-20
+                                      p-0
+                                      m-0'
+                                      src={item.image} alt="" />
+                                  <div className="flex justify-between text-base font-medium text-gray-900">
 
-                              <div className="flex items-end justify-between text-sm mt-2">
-                                {/* + / - */}
-                                <div className="flex gap-2 items-center">
-                                  <button
-                                    className="cursor-pointer"
-                                    onClick={() =>
-                                      addItem({
-                                        id: item.id,
-                                        title: item.title,
-                                        price: item.price
-                                      })
-                                    }
-                                  >
-                                    +
-                                  </button>
 
-                                  <span>{item.qty}</span>
-
-                                  <button
-                                    className="cursor-pointer"
-                                    onClick={() => decrementItem(item.id)}
-                                  >
-                                    −
-                                  </button>
+                                    <h3>{item.title}</h3>
+                                    <p className="ml-4">${(item.price * item.qty).toFixed(2)}</p>
+                                  </div>
+                                  <p className="mt-1 text-sm text-gray-500">Cant. {item.qty}</p>
                                 </div>
 
-                                {/* eliminar */}
-                                <button
-                                  onClick={() => removeItem(item.id)}
-                                  className="font-medium text-indigo-600 hover:text-indigo-500 cursor-pointer"
-                                >
-                                  Eliminar
-                                </button>
+
+                                <div className='bg-red-100'>
+                                  
+                                  <div className="flex items-end justify-between text-sm mt-2">
+                                    {/* + / - */}
+                                    <div className="flex gap-2 items-center">
+                                      <button
+                                        className="cursor-pointer"
+                                        onClick={() =>
+                                          addItem({
+                                            id: item.id,
+                                            title: item.title,
+                                            price: item.price,
+                                            image : item.image
+                                          })
+                                        }
+                                      >
+                                        +
+                                      </button>
+
+                                      <span>{item.qty}</span>
+
+                                      <button
+                                        className="cursor-pointer"
+                                        onClick={() => decrementItem(item.id)}
+                                      >
+                                        −
+                                      </button>
+                                    </div>
+
+                                    {/* eliminar */}
+                                    <button
+                                      onClick={() => removeItem(item.id)}
+                                      className="font-medium text-indigo-600 hover:text-indigo-500 cursor-pointer"
+                                    >
+                                      Eliminar
+                                    </button>
+                                  </div>
+                                </div>
                               </div>
-                            </div>
-                          </li>
+                            </li>
 
                           ))
                         )}

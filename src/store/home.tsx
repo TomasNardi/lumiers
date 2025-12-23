@@ -1,6 +1,7 @@
 import { useContext } from "react"
 import { ShopCartContext } from "../context/shopcart"
 import CartShop from "./cartshop"
+// import ResumeShop from "./resumeshop"
 
 
 // ---------------- TYPES ----------------
@@ -169,6 +170,7 @@ const Home = () => {
               id: producto.id,
               title: producto.title,
               price: producto.price,
+              image: producto.imgsrc1, 
             })
           }
         />
