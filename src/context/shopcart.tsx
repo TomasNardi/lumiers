@@ -36,7 +36,6 @@ export const ShopCartProvider = ({ children }: ShopCartProviderProps) => {
     localStorage.setItem("ShopList", JSON.stringify(items))
   }, [items])
 
-  // ➕ Agregar / incrementar
   const addItem = (product: Omit<CartItem, "qty">) => {
     // toast.success("🛒 Producto agregado")
 

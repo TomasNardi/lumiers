@@ -37,7 +37,7 @@ const ProductCard = ({
   price,
   stock,
   className,
-  onAdd,
+  onAdd ,
 }: ProductProps) => {
   return (
     <div className={className}>
@@ -85,9 +85,19 @@ const ProductCard = ({
 
       <p className="mt-2 font-bold">${price}</p>
 
-      <p className={stock ? "text-green-600" : "text-red-600"}>
-        {stock ? "Hay stock" : "Sin stock"}
-      </p>
+      <div className="flex items-center gap-2 mt-2">
+        <span
+          className={`w-2.5 h-2.5 rounded-full ${
+            stock ? "bg-green-500" : "bg-red-500"
+          }`}
+        />
+        <p className={`text-sm font-medium ${
+          stock ? "text-green-600" : "text-red-600"
+        }`}>
+          {stock ? "Disponible para entrega" : "Sin stock"}
+        </p>
+      </div>
+
 
       <button
         disabled={!stock}
@@ -103,6 +113,7 @@ const ProductCard = ({
     </div>
   )
 }
+
 // ---------------- DATA ----------------
 const productos: Product[] = [
   {

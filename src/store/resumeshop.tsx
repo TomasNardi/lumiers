@@ -112,7 +112,6 @@ const ResumeShop = ({ open, onClose }: ResumeShopProps) => {
                                 </div>
                               </div>
                             </li>
-
                           ))
                         )}
                       </ul>
