@@ -23,7 +23,6 @@ const ResumeShop = ({ open, onClose }: ResumeShopProps) => {
       <DialogBackdrop
         className="fixed inset-0 bg-gray-500/75 transition-opacity duration-500 ease-in-out data-closed:opacity-0"
       />
-
       <div className="fixed inset-0 overflow-hidden">
         <div className="absolute inset-0 overflow-hidden">
           <div className="pointer-events-none fixed inset-y-0 right-0 flex max-w-full pl-10 sm:pl-16">
@@ -40,11 +39,10 @@ const ResumeShop = ({ open, onClose }: ResumeShopProps) => {
                       >
                         <span className="absolute -inset-0.5" />
                         <span className="sr-only">Cerrar Panel</span>
-                        <XMarkIcon aria-hidden="true" className="h-6 w-6" />
+                        <XMarkIcon aria-hidden="true" className="h-6 w-6"/>
                       </button>
                     </div>
                   </div>
-
                   <div className="mt-8">
                     <div className="flow-root">
                       <ul role="list" className="-my-6 divide-y divide-gray-200">
@@ -54,31 +52,28 @@ const ResumeShop = ({ open, onClose }: ResumeShopProps) => {
                           </li>
                         ) : (
                           items.map((item) => (
-                            <li key={item.id} className="flex py-6">
+                            <li key={item.id} className="flex py-5">
                               <div className="ml-4 flex flex-1 flex-col">
                                 <div>
                                    <img 
-                                      className='h-20
+                                      className='h-22
                                       p-0
                                       m-0'
                                       src={item.image} alt="" />
                                   <div className="flex justify-between text-base font-medium text-gray-900">
-
-
                                     <h3>{item.title}</h3>
                                     <p className="ml-4">${(item.price * item.qty).toFixed(2)}</p>
                                   </div>
-                                  <p className="mt-1 text-sm text-gray-500">Cant. {item.qty}</p>
+                                  <p className="text-xs font-extralight">
+                                    Precio Unitario {item.price}
+                                  </p>
                                 </div>
-
-
-                                <div className='bg-red-100'>
-                                  
-                                  <div className="flex items-end justify-between text-sm mt-2">
+                                <div className='hr'>
+                                  <div className="flex items-end justify-between mt-2">
                                     {/* + / - */}
-                                    <div className="flex gap-2 items-center">
+                                    <div className="flex gap-2 items-center text-md border border-gray-300 bg-gray-100 p-2 rounded-sm">
                                       <button
-                                        className="cursor-pointer"
+                                        className="cursor-pointer transition-transform duration-100 ease-in-out hover:scale-110"
                                         onClick={() =>
                                           addItem({
                                             id: item.id,
@@ -94,7 +89,12 @@ const ResumeShop = ({ open, onClose }: ResumeShopProps) => {
                                       <span>{item.qty}</span>
 
                                       <button
-                                        className="cursor-pointer"
+                                        className="
+                                        hover:scale-110
+                                        transition-transform
+                                        duration-100 
+                                        cursor-pointer
+                                        "
                                         onClick={() => decrementItem(item.id)}
                                       >
                                         −
@@ -122,7 +122,7 @@ const ResumeShop = ({ open, onClose }: ResumeShopProps) => {
 
                 <div className="border-t border-gray-200 px-4 py-6 sm:px-6">
                   <div className="flex justify-between text-base font-medium text-gray-900">
-                    <p>Subtotal</p>
+                    <p>Monto Total</p>
                     <p>${subtotal.toFixed(2)}</p>
                   </div>
                   <p className="mt-0.5 text-sm text-gray-500">El envío sera acordado al finalizar la compra.</p>
@@ -140,8 +140,7 @@ const ResumeShop = ({ open, onClose }: ResumeShopProps) => {
                       <button
                         type="button"
                         onClick={onClose}
-                        className="font-medium text-indigo-600 hover:text-indigo-500"
-                      >
+                        className="font-medium text-indigo-600 hover:text-indigo-500">
                         Continuar Comprando
                         <span aria-hidden="true"> &rarr;</span>
                       </button>
