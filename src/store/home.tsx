@@ -182,7 +182,9 @@ const Home = () => {
  return (
   <Window className="min-h-screen bg-neutral-200 p-3 lg:p-10 relative">
     <Grid className="max-w-20xl mx-auto grid grid-cols-2 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-2 lg:gap-5">
-      {productos.map(producto => (
+      {productos
+      .sort((a, b) => Number(b.stock) - Number(a.stock))
+      .map(producto => (
         <ProductCard
           key={producto.id}
           {...producto}
