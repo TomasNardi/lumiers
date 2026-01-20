@@ -44,7 +44,7 @@ const ProductCard = ({
 }: ProductProps) => {
   return (
     <div className={className}>
-      <div className="relative group overflow-hidden rounded">
+      <div className="relative group overflow-hidden rounded ">
         <link rel="preload" as="image" href={imgsrc2} />
 
         <img
@@ -52,6 +52,8 @@ const ProductCard = ({
           alt={title}
           className="
             w-full
+            border-2
+            scale-120
             object-cover
             transition-all
             duration-500
@@ -108,7 +110,7 @@ const ProductCard = ({
         onAdd()
         onOpenResume()
       }}
-      className={`mt-5 w-full py-2 rounded text-white ${
+      className={`mt-4 w-full text-[8px] lg:text-base py-2 md:py-2 rounded text-white ${
         stock
           ? "bg-neutral-900 hover:bg-gray-800 cursor-pointer"
           : "bg-gray-400 cursor-not-allowed"
@@ -179,7 +181,7 @@ const Home = () => {
 
  return (
   <Window className="min-h-screen bg-neutral-200 p-3 lg:p-10 relative">
-    <Grid className="max-w-20xl mx-auto grid grid-cols-2 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-5">
+    <Grid className="max-w-20xl mx-auto grid grid-cols-2 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-2 lg:gap-5">
       {productos.map(producto => (
         <ProductCard
           key={producto.id}
