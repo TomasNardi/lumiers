@@ -1,6 +1,7 @@
-import { useContext } from "react"
+import { useContext, useState } from "react"
 import { ShopCartContext } from "../context/shopcart"
 import CartShop from "./cartshop"
+import ResumeShop from "./resumeshop"
 // import ResumeShop from "./resumeshop"
 
 
@@ -18,6 +19,7 @@ type Product = {
 type ProductProps = Product & {
   className: string
   onAdd: () => void
+  onOpenResume: () => void
 }
 
 // ---------------- COMPONENTS ----------------
@@ -37,6 +39,7 @@ const ProductCard = ({
   price,
   stock,
   className,
+  onOpenResume, 
   onAdd ,
 }: ProductProps) => {
   return (
@@ -83,33 +86,37 @@ const ProductCard = ({
 
       <h2 className="text-sm text-gray-500">{subtitle}</h2>
 
-      <p className="mt-2 font-bold">${price}</p>
+      <p className="lg:mt-2 font-bold">${price}</p>
 
-      <div className="flex items-center gap-2 mt-2">
+      <div className="flex items-center  gap-2 mt-1 lg:mt-2">
         <span
           className={`w-2.5 h-2.5 rounded-full ${
             stock ? "bg-green-500" : "bg-red-500"
           }`}
         />
         <p className={`text-sm font-medium ${
-          stock ? "text-green-600" : "text-red-600"
+          stock ? "text-green-600 text-[10px] lg:text-base" : "text-red-600"
         }`}>
           {stock ? "Disponible para entrega" : "Sin stock"}
         </p>
       </div>
 
 
-      <button
+        <button
         disabled={!stock}
-        onClick={onAdd}
-        className={`mt-5 w-full py-2 rounded text-white ${
-          stock
-            ? "bg-neutral-900 hover:bg-gray-800 cursor-pointer"
-            : "bg-gray-400 cursor-not-allowed"
-        }`}
-      >
-        Agregar al carrito
-      </button>
+        onClick={() => {
+        onAdd()
+        onOpenResume()
+      }}
+      className={`mt-5 w-full py-2 rounded text-white ${
+        stock
+          ? "bg-neutral-900 hover:bg-gray-800 cursor-pointer"
+          : "bg-gray-400 cursor-not-allowed"
+      }`}
+    >
+      Agregar al carrito
+    </button>
+
     </div>
   )
 }
@@ -166,16 +173,18 @@ const productos: Product[] = [
 // ---------------- PAGE ----------------
 const Home = () => {
   const cart = useContext(ShopCartContext)
+  const [openResume , setOpenResume] = useState(false)
+
   if (!cart) return null
 
  return (
-  <Window className="min-h-screen bg-neutral-200 px-10 py-10 relative">
-    <Grid className="max-w-20xl mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-5">
+  <Window className="min-h-screen bg-neutral-200 p-3 lg:p-10 relative">
+    <Grid className="max-w-20xl mx-auto grid grid-cols-2 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-5">
       {productos.map(producto => (
         <ProductCard
           key={producto.id}
           {...producto}
-          className="p-6 rounded-xl shadow-2xl border-2 border-neutral-200 bg-white"
+          className="p-4 lg:p-6 rounded-xl shadow-2xl border-2 border-neutral-200 bg-white"
           onAdd={() =>
             cart.addItem({
               id: producto.id,
@@ -184,12 +193,18 @@ const Home = () => {
               image: producto.imgsrc1, 
             })
           }
+          onOpenResume={() => setOpenResume(true)}
         />
       ))}
     </Grid>
 
     {/*Carrito flotante */}
     <CartShop />
+
+    <ResumeShop 
+    open = {openResume}
+    onClose = {()=> setOpenResume(false)}/>
+
   </Window>)}
 
 export default Home
