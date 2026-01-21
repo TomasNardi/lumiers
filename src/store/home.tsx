@@ -2,20 +2,10 @@ import { useContext, useState } from "react"
 import { ShopCartContext } from "../context/shopcart"
 import CartShop from "./cartshop"
 import ResumeShop from "./resumeshop"
-// import ResumeShop from "./resumeshop"
-
+import productos, { type Product } from "./products"
+import { useNavigate } from "react-router-dom"
 
 // ---------------- TYPES ----------------
-type Product = {
-  id: number
-  title: string
-  subtitle: string
-  imgsrc1: string
-  imgsrc2: string
-  price: number
-  stock: boolean
-}
-
 type ProductProps = Product & {
   className: string
   onAdd: () => void
@@ -31,9 +21,11 @@ const Grid = ({ className, children }: { className: string; children: React.Reac
   <div className={className}>{children}</div>
 )
 
-const ProductCard = ({
+const ProductCard = (
+  {
   title,
   subtitle,
+  slug,
   imgsrc1,
   imgsrc2,
   price,
@@ -41,12 +33,16 @@ const ProductCard = ({
   className,
   onOpenResume, 
   onAdd ,
-}: ProductProps) => {
+}: ProductProps) => 
+  {
+  const navigate = useNavigate();
   return (
     <div className={className}>
-      <div className="relative group overflow-hidden rounded ">
-        <link rel="preload" as="image" href={imgsrc2} />
-
+      <div 
+      onClick={() => navigate(`/product/${slug}`)}
+      className="relative group overflow-hidden rounded hover:cursor-pointer ">
+        <link
+        rel="preload" as="image" href={imgsrc2} />
         <img
           src={imgsrc1}
           alt={title}
@@ -122,55 +118,6 @@ const ProductCard = ({
     </div>
   )
 }
-
-// ---------------- DATA ----------------
-const productos: Product[] = [
-  {
-    id: 1,
-    title: "Vela Vainilla",
-    subtitle: "Dulce y cálida",
-    imgsrc1: "https://thecandleshop.com.ar/cdn/shop/files/NV12P-a.jpg?v=1762349067&width=800",
-    imgsrc2: "https://thecandleshop.com.ar/cdn/shop/files/NV12P-a.jpg?v=1762349067&width=800",
-    price: 12.99,
-    stock: true,
-  },
-  {
-    id: 2,
-    title: "Vela Lavanda",
-    subtitle: "Relajante natural",
-    imgsrc1: "https://thecandleshop.com.ar/cdn/shop/files/NV12RG-a.jpg?v=1762349067&width=800",
-    imgsrc2: "https://thecandleshop.com.ar/cdn/shop/files/NV12P-a.jpg?v=1762349067&width=800",
-    price: 14.5,
-    stock: true,
-  },
-  {
-    id: 3,
-    title: "Vela Sándalo",
-    subtitle: "Amaderada y profunda",
-    imgsrc1: "https://thecandleshop.com.ar/cdn/shop/files/NV11L-a.jpg?v=1762349067&width=800",
-    imgsrc2: "https://thecandleshop.com.ar/cdn/shop/files/NV12P-a.jpg?v=1762349067&width=800",
-    price: 16.25,
-    stock: false,
-  },
-  {
-    id: 4,
-    title: "Vela Cítrica",
-    subtitle: "Fresca y energizante",
-    imgsrc1: "https://thecandleshop.com.ar/cdn/shop/files/A53-HigoOriente.jpg?v=1754070424&width=800",
-    imgsrc2: "https://thecandleshop.com.ar/cdn/shop/files/NV12P-a.jpg?v=1762349067&width=800",
-    price: 13.75,
-    stock: true,
-  },
-  {
-    id: 5,
-    title: "Vela Rosa Blanca",
-    subtitle: "Suave y floral",
-    imgsrc1: "https://thecandleshop.com.ar/cdn/shop/files/NV11F-a.jpg?v=1762349067&width=800",
-    imgsrc2: "https://thecandleshop.com.ar/cdn/shop/files/NV12P-a.jpg?v=1762349067&width=800",
-    price: 15.99,
-    stock: true,
-  },
-]
 
 // ---------------- PAGE ----------------
 const Home = () => {
