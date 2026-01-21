@@ -59,11 +59,14 @@ const ProductDetail = () => {
         </div>
 
         {/* ---------------- INFO / DESCRIPCIÓN ---------------- */}
-        <div className="lg:col-span-5 flex flex-col gap-4">
-          <h1 className="text-2xl font-semibold">{producto.title}</h1>
+        <div className="lg:col-span-5 flex flex-col gap-5">
+          <h1 className="text-3xl font-semibold">{producto.title}</h1>
           <p className="text-gray-500">{producto.subtitle}</p>
 
-          <p className="text-xl font-bold">${producto.price}</p>
+            <div>
+            <p className="text-xl font-bold">${producto.price}</p>
+            <p className="text-xs text-gray-500">Precios con Impuestos Nacionales</p>
+            </div>
 
           {!producto.stock && (
             <span className="text-sm text-red-500 font-medium">
@@ -74,6 +77,22 @@ const ProductDetail = () => {
           <div className="text-gray-600 leading-relaxed whitespace-pre-line">
             {producto.description}
           </div>
+
+          <p className="font-bold">Consultar Opciones de Retiro</p>
+
+            {/* Product available  */}
+             <div className="flex items-center  gap-2 mt-1 lg:mt-2">
+                <span
+                className={`w-2.5 h-2.5 rounded-full ${
+                    producto.stock ? "bg-green-500" : "bg-red-500"
+                }`}
+                />
+                <p className={`text-sm font-medium ${
+                producto.stock ? "text-green-600 text-[10px] lg:text-base" : "text-red-600"
+                }`}>
+                {producto.stock ? "Disponible para entrega inmediata" : "Sin stock"}
+                </p>
+            </div>
 
           <button
             disabled={!producto.stock}
